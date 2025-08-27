@@ -8,7 +8,9 @@
       "mcp__serena__list_dir",
       "mcp__serena__write_memory",
       "Bash(git rm:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(npm view:*)",
+      "Bash(pnpm update:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
