@@ -1,0 +1,32 @@
+{
+  "name": "@muscle-training/ui",
+  "version": "0.0.0",
+  "description": "共通UIコンポーネント",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@storybook/react": "^7.6.0",
+    "@storybook/addon-a11y": "^7.6.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  }
+}

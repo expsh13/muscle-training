@@ -1,0 +1,31 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "description": "フロントエンド（Next.js）",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@muscle-training/types": "workspace:*",
+    "@muscle-training/ui": "workspace:*",
+    "@muscle-training/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.2.0",
+    "@testing-library/react": "^14.0.0",
+    "playwright": "^1.40.0"
+  }
+}

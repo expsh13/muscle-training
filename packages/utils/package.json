@@ -1,0 +1,24 @@
+{
+  "name": "@muscle-training/utils",
+  "version": "0.0.0",
+  "description": "共通ユーティリティ関数",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:watch": "vitest --watch"
+  },
+  "devDependencies": {
+    "vitest": "^1.2.0"
+  }
+}

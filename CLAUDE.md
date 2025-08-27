@@ -22,7 +22,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a muscle training tracking app built as a learning project using functional Domain-Driven Design (DDD) and Test-Driven Development (TDD). The project uses a monorepo structure with pnpm workspaces and follows functional programming principles with TypeScript.
 
 **Tech Stack:**
-- Frontend: Next.js 14 (App Router) + TypeScript + Tailwind CSS
+
+- Frontend: Next.js 15 (App Router) + TypeScript + Tailwind CSS
 - Backend: Hono (Cloudflare Workers) + TypeScript
 - Database: Neon PostgreSQL + Drizzle ORM
 - Authentication: Auth.js + Google OAuth
@@ -33,6 +34,7 @@ This is a muscle training tracking app built as a learning project using functio
 ## Architecture
 
 **Monorepo Structure:**
+
 ```
 apps/
 ├── web/          # Next.js frontend
@@ -45,6 +47,7 @@ packages/
 ```
 
 **Key Architectural Principles:**
+
 - **Functional DDD**: No classes, pure functions for business logic, immutable data
 - **Type Safety**: Strict TypeScript with readonly types and domain modeling
 - **Dependency Flow**: apps → packages, avoid circular dependencies
@@ -53,6 +56,7 @@ packages/
 ## Development Commands
 
 **Main Commands:**
+
 ```bash
 # Start all development servers
 pnpm dev
@@ -60,7 +64,7 @@ pnpm dev
 # Frontend only
 pnpm --filter web dev
 
-# Backend only  
+# Backend only
 pnpm --filter api dev
 
 # Build all packages
@@ -92,6 +96,7 @@ pnpm --filter ui storybook   # Start Storybook
 ## Domain Model
 
 **Core Entities:**
+
 - `User`: Google OAuth authenticated users (max 2)
 - `BodyRecord`: Weight and body fat tracking
 - `Exercise`: User-created workout exercises (no seed data)
@@ -99,57 +104,64 @@ pnpm --filter ui storybook   # Start Storybook
 - `WorkoutRecord`: Exercise session records with weights/reps
 
 **Functional DDD Pattern:**
+
 ```typescript
 // Domain types (readonly, immutable)
 export type Exercise = {
-  readonly id: string
-  readonly name: string
-  readonly userId: string
-  readonly createdAt: Date
-}
+  readonly id: string;
+  readonly name: string;
+  readonly userId: string;
+  readonly createdAt: Date;
+};
 
 // Pure business logic functions
 export const createExercise = (command: CreateExerciseCommand): Exercise => ({
   // Pure function implementation
-})
+});
 ```
 
 ## TDD Strategy
 
 **Heavy TDD (Red-Green-Refactor):**
+
 - All Hono API endpoints
 - Business logic functions in domain layer
 - Data calculations and aggregations
 - Accessibility tests for UI components
 
 **Light Testing:**
+
 - Next.js component basic functionality
 - Auth flows (integration testing only)
 - Chart.js configurations (visual confirmation)
 
 **Test Structure:**
+
 ```
 __tests__/
 ├── unit/           # Pure function tests
-├── integration/    # API integration tests  
+├── integration/    # API integration tests
 └── e2e/           # End-to-end tests (web only)
 ```
 
 ## Code Style Guidelines
 
 **Functional Programming:**
+
 - Use `const` and `readonly` extensively
 - Avoid mutation, prefer immutable updates
 - Pure functions for business logic
 - Minimize side effects, isolate when necessary
 
 **TypeScript:**
+
 - Strict mode enabled with `noUncheckedIndexedAccess`
 - Domain types in `packages/types`
 - Use branded types for IDs when beneficial
 - Prefer type unions over enums
 
 **API Design:**
+
 - RESTful endpoints with consistent naming
 - Strong request/response typing
 - Error handling with proper HTTP codes
@@ -168,6 +180,7 @@ __tests__/
 ## Database Schema Notes
 
 **Key Tables:**
+
 - `users` - Google OAuth user data
 - `body_records` - Weight/body fat entries
 - `exercises` - User-created exercise definitions
@@ -175,6 +188,7 @@ __tests__/
 - `workout_records` - Individual workout session data
 
 **Migration Management:**
+
 - Use Drizzle schema-first approach
 - Generate migrations with `pnpm --filter db generate`
 - Manual review required before running migrations
@@ -182,6 +196,7 @@ __tests__/
 ## Learning Project Context
 
 **Primary Goals:**
+
 - **Pair programming learning experience (ペアプログラミング学習)**
 - Functional DDD + TDD practical understanding
 - Modern TypeScript and JavaScript skill acquisition
@@ -189,6 +204,7 @@ __tests__/
 - Accessibility awareness development
 
 **Teaching Approach:**
+
 - **Explain all technical decisions and architectural choices in Japanese**
 - Code should be educational and well-documented with Japanese comments
 - Prefer explicit patterns over clever shortcuts
@@ -197,6 +213,7 @@ __tests__/
 - Regular knowledge sharing and understanding verification
 
 **Development Philosophy:**
+
 - **Learning effectiveness over development speed**
 - Quality and understanding over quick delivery
 - Encourage questions and discussions in Japanese
@@ -206,11 +223,13 @@ __tests__/
 ## Special Considerations
 
 **PWA Requirements:**
+
 - Basic PWA functionality (manifest, service worker)
 - No offline support required
 - Mobile-first responsive design
 
 **Performance:**
+
 - Regular data sync (not real-time)
 - Chart.js optimization for mobile
 - Next.js App Router with proper loading states
