@@ -1,17 +1,7 @@
 {
-	"extends": "./tsconfig.base.json",
-	"compilerOptions": {
-		"composite": true,
-		"outDir": "dist",
-		"rootDir": "."
-	},
-	"files": [],
-	"references": [
-		{ "path": "./packages/types" },
-		{ "path": "./packages/db" },
-		{ "path": "./packages/ui" },
-		{ "path": "./packages/utils" },
-		{ "path": "./apps/web" },
-		{ "path": "./apps/api" }
-	]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
